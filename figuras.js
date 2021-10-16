@@ -137,3 +137,36 @@ function CalcularAreaCirculo() {
 
     alert(area);
 };
+
+
+// TRIÁNGULO ISÓSCELES
+function CalcularAltura() {
+    const input1 = document.getElementById("input1");
+    const lado1 = parseFloat(input1.value);
+    const input2 = document.getElementById("input2");
+    const lado2 = parseFloat(input2.value);
+    const inputBase = document.getElementById("inputBase");
+    const base = parseFloat(inputBase.value);
+
+    if (lado1 === lado2) {
+        if (lado1 > 0 && base > 0) {
+            const sumaLados = lado1+lado2;
+            if (base < sumaLados) {
+                //Para usar Pitágoras a2 + b2 = c2
+                const c = lado1;
+                const b = base/2;
+                const a = Math.sqrt((c*c) - (b*b));
+                alert("La altura es de: " + a + "cm");
+            }
+            else {
+                alert("La base es mayor o igual a la suma de los lados, no existe altura.");
+            }
+        }
+        else {
+            alert("Los lados tienen que ser mayor a cero incluyendo la base");
+        }
+    }
+    else {
+        alert("Los lados 1 y 2 tienen que ser el del mismo tamaño");
+    }
+}
